@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include('./components/header.ejs') %>
+    <main>
+      <div class="container">
+        <section class="update-news">
+          <h2 class="title"><%= title %></h2>
+          <form
+            action="/update-news/<%= news.id %>"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <label for="title" class="label-title">Заголовок</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="input-title"
+                required
+                value="<%= news.title %>"
+              />
+            </div>
+            <div class="form-group">
+              <label for="description" class="label-description"
+                >Описание</label
+              >
+              <textarea
+                id="description"
+                name="description"
+                class="input-description"
+                required
+              >
+<%= news.description %></textarea
+              >
+            </div>
+            <div class="form-group">
+              <label for="image" class="label-image">Изображение</label>
+              <input type="file" id="image" name="image" class="input-image" />
+              <input
+                type="hidden"
+                name="currentImage"
+                value="<%= news.image %>"
+              />
+            </div>
+            <button type="submit">Обновить</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer><%- include('./components/footer.ejs') %></footer>
+    <script src="/script/script.js"></script>
+  </body>
+</html>

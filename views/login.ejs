@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Войти</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include('./components/header.ejs') %>
+    <main>
+      <h1 class="title">Вход</h1>
+      <br />
+      <div class="container">
+        <form class="custom-form" action="/login" method="post">
+          <label for="username">Логин:</label>
+          <input type="text" id="username" name="username" required />
+          <br />
+          <label for="password">Пароль:</label>
+          <input type="password" id="password" name="password" required />
+          <br />
+          <button type="submit">Вход</button>
+        </form>
+      </div>
+    </main>
+    <footer><%- include('./components/footer.ejs') %></footer>
+    <script src="/script/script.js"></script>
+  </body>
+</html>

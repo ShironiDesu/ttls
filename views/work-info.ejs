@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= worksItem.title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header><%- include('./components/header.ejs') %></header>
+    <main>
+      <div class="works-card">
+        <h1 class="works-card-title"><%= worksItem.title %></h1>
+        <img
+          src="/uploads/<%= worksItem.image %>"
+          alt="<%= worksItem.title %>"
+          class="works-card-image"
+        />
+        <p class="works-card-description"><%= worksItem.description %></p>
+      </div>
+    </main>
+    <footer><%- include('./components/footer.ejs') %></footer>
+  </body>
+</html>

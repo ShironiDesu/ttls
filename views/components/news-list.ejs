@@ -1,0 +1,31 @@
+<h2 class="title"><%= title %></h2>
+<% if (news.length) { %>
+<section class="news">
+  <% news.forEach(({ id, title, description, image }) => { %>
+  <div class="news-item">
+    <div class="news-top">
+      <img src="/uploads/<%= image %>" alt="<%= title %>" class="img" />
+
+      <div class="news-text">
+        <h3>
+          <a href="/news/<%= id %>"
+            ><%= title.length > 20 ? title.slice(0, 20) + "..." : title %></a
+          >
+        </h3>
+
+        <p class="description">
+          <%= description.length > 300 ? description.slice(0, 70) + "..." :
+          description %>
+        </p>
+      </div>
+    </div>
+    <% if (isAdmin) { %>
+    <div class="buttons">
+      <button class="btn delete-button" data-id="<%= id %>">&#10060;</button>
+      <button class="btn update-button" data-id="<%= id %>">&#9998;</button>
+    </div>
+    <% } %>
+  </div>
+  <% }) %>
+</section>
+<% } %>

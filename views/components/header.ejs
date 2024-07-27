@@ -1,0 +1,18 @@
+<header>
+  <nav>
+    <div class="logo">
+      <img src="/images/logo2023.png" alt="" />
+    </div>
+
+    <ul>
+      <li><a href="/">Главная</a></li>
+      <li><a href="/works">Статьи</a></li>
+      <li><a href="/news">Новости</a></li>
+      <% if (!isAdmin) { %>
+      <li><a href="/login">Войти</a></li>
+      <% } else { %>
+      <li><a href="/logout">Выйти</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

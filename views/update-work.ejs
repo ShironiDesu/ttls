@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Work</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include('components/header.ejs') %>
+    <main>
+      <div class="container">
+        <section class="update-work">
+          <h2 class="title"><%= title %></h2>
+          <form
+            action="/update-work/<%= work.id %>"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <label for="title" class="label-title">Название работы</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="input-title"
+                placeholder="Название работы"
+                required
+                value="<%= work.title %>"
+              />
+            </div>
+            <div class="form-group">
+              <label for="description" class="label-description"
+                >Описание работы</label
+              >
+              <textarea
+                id="description"
+                name="description"
+                class="input-description"
+                placeholder="Описание работы"
+                required
+              >
+<%= work.description %></textarea
+              >
+            </div>
+            <div class="form-group">
+              <label for="image" class="label-image">Изображение работы</label>
+              <input type="file" id="image" name="image" class="input-image" />
+              <input
+                type="hidden"
+                name="currentImage"
+                value="<%= work.image %>"
+              />
+            </div>
+            <button type="submit">Отправить</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer><%- include('components/footer.ejs') %></footer>
+    <script src="/script/script.js"></script>
+  </body>
+</html>
